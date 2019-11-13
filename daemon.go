@@ -191,6 +191,7 @@ func failColor(format string, args ...interface{}) string {
 
 // Run `go build` and print the output if something's gone wrong.
 func build() bool {
+	fmt.Print("\n\n")
 	log.Println(okColor("Running build command!"))
 	if os.Getenv("FILE") != "" {
 		log.Println(okColor("File changed: %s", os.Getenv("FILE")))
@@ -266,7 +267,6 @@ func logger(pipeChan <-chan io.ReadCloser) {
 				log.Print(line)
 			}
 		}
-		fmt.Print("\n")
 	}
 
 	for {
